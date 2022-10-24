@@ -17,11 +17,11 @@ ingress objects), the Proxy API provides a way to do that.
 
 In general, for a proxy to be usable by JupyterHub, it must:
 
-1. support websockets without prior knowledge of the URL where websockets may
-   occur
-2. support trie-based routing (i.e. allow different routes on `/foo` and
-   `/foo/bar` and route based on specificity)
-3. adding or removing a route should not cause existing connections to drop
+1. Support websockets without prior knowledge of the URL where websockets may
+   occur.
+2. Support trie-based routing (i.e. allow different routes on `/foo` and
+   `/foo/bar` and route based on specificity).
+3. Adding or removing a route should not cause existing connections to drop.
 
 Optionally, if the JupyterHub deployment is to use host-based routing,
 the Proxy must additionally support routing based on the Host of the request.
@@ -94,10 +94,10 @@ Each of these methods **may** be a coroutine.
 A routespec, which will appear in these methods, is a string describing a
 route to be proxied, such as `/user/name/`. A routespec will:
 
-1. always end with `/`
-2. always start with `/` if it is a path-based route `/proxy/path/`
-3. precede the leading `/` with a host for host-based routing, e.g.
-   `host.tld/proxy/path/`
+1. Always end with `/`.
+2. Always start with `/` if it is a path-based route `/proxy/path/`.
+3. Precede the leading `/` with a host for host-based routing, e.g.
+   `host.tld/proxy/path/`.
 
 ### Adding a route
 
@@ -139,7 +139,7 @@ async def delete_route(self, routespec):
 For retrieval, you only _need_ to implement a single method that retrieves all
 routes. The return value for this function should be a dictionary, keyed by
 `routespect`, of dicts whose keys are the same three arguments passed to
-`add_route` (`routespec`, `target`, `data`)
+`add_route` (`routespec`, `target`, `data`).
 
 ```python
 async def get_all_routes(self):
@@ -225,6 +225,6 @@ via `jupyterhub --generate-config`.
 
 A list of the proxies that are currently available for JupyterHub (that we know about).
 
-1. [`jupyterhub/configurable-http-proxy`](https://github.com/jupyterhub/configurable-http-proxy) The default proxy which uses node-http-proxy
-2. [`jupyterhub/traefik-proxy`](https://github.com/jupyterhub/traefik-proxy) The proxy which configures traefik proxy server for jupyterhub
-3. [`AbdealiJK/configurable-http-proxy`](https://github.com/AbdealiJK/configurable-http-proxy) A pure python implementation of the configurable-http-proxy
+1. [`jupyterhub/configurable-http-proxy`](https://github.com/jupyterhub/configurable-http-proxy) The default proxy which uses node-http-proxy.
+2. [`jupyterhub/traefik-proxy`](https://github.com/jupyterhub/traefik-proxy) The proxy which configures traefik proxy server for jupyterhub.
+3. [`AbdealiJK/configurable-http-proxy`](https://github.com/AbdealiJK/configurable-http-proxy) A pure python implementation of the configurable-http-proxy.
